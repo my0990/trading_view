@@ -1,0 +1,4 @@
+# 배포할 때 올리지 않을 파일 (앱키가 든 .env.local 등)
+.env*.local
+node_modules
+.next

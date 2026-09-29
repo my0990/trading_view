@@ -1,0 +1,299 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  color: #e6e6e6;
+  background: #0f1115;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.dashboard {
+  padding: 2.5rem 2rem 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dashboard__header {
+  margin-bottom: 2rem;
+}
+
+.dashboard__header h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.dashboard__header p {
+  color: #9aa0a6;
+  font-size: 0.95rem;
+}
+
+.dashboard__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.25rem;
+}
+
+.chart-card {
+  background: #171a21;
+  border: 1px solid #262a33;
+  border-radius: 12px;
+  padding: 1rem 1rem 0.75rem;
+  overflow: hidden;
+}
+
+.chart-card__title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #d8dae0;
+  margin-bottom: 0.5rem;
+}
+
+.index-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.index-card__quote {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.index-card__price {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #f1f3f5;
+}
+
+.index-card__change {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.index-card__chart {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  margin: 0.5rem 0 0.25rem;
+  cursor: crosshair;
+  touch-action: pan-y;
+}
+
+.index-card__svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.chart-hover__line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.25);
+  pointer-events: none;
+}
+
+.chart-hover__dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px;
+  border-radius: 50%;
+  border: 2px solid #171a21;
+  pointer-events: none;
+}
+
+.chart-hover__tip {
+  position: absolute;
+  top: 0;
+  transform: translateX(8px);
+  background: #0f1115;
+  border: 1px solid #333844;
+  border-radius: 6px;
+  padding: 0.3rem 0.5rem;
+  font-size: 0.72rem;
+  line-height: 1.35;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.chart-hover__tip.is-left {
+  transform: translateX(calc(-100% - 8px));
+}
+
+.chart-hover__value {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #f1f3f5;
+}
+
+.chart-hover__date {
+  color: #9aa0a6;
+}
+
+.index-card__meta,
+.index-card__status {
+  font-size: 0.75rem;
+  color: #7d838c;
+}
+
+.index-card__status {
+  margin: auto;
+}
+
+.index-card__prev {
+  font-size: 0.8rem;
+  color: #7d838c;
+}
+
+.chart-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+.chart-card__head .chart-card__title {
+  margin-bottom: 0;
+}
+
+.range-tabs {
+  display: flex;
+  gap: 2px;
+  background: #0f1115;
+  border: 1px solid #262a33;
+  border-radius: 8px;
+  padding: 2px;
+}
+
+.range-tabs__btn {
+  background: none;
+  border: 0;
+  color: #9aa0a6;
+  font: inherit;
+  font-size: 0.72rem;
+  padding: 0.2rem 0.45rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.range-tabs__btn:hover {
+  color: #e6e6e6;
+}
+
+.range-tabs__btn.is-active {
+  background: #262a33;
+  color: #f1f3f5;
+  font-weight: 600;
+}
+
+.index-card__period {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  color: #b4b9c0;
+  margin-bottom: 0.2rem;
+}
+
+.dashboard__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.78rem;
+  color: #7d838c;
+}
+
+.dashboard__reset {
+  background: none;
+  border: 1px solid #333844;
+  border-radius: 6px;
+  color: #b4b9c0;
+  font: inherit;
+  padding: 0.25rem 0.6rem;
+  cursor: pointer;
+}
+
+.dashboard__reset:hover {
+  color: #f1f3f5;
+  border-color: #4a505c;
+}
+
+.chart-card__title {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.drag-handle {
+  background: none;
+  border: 0;
+  color: #5c626c;
+  font-size: 0.9rem;
+  line-height: 1;
+  letter-spacing: -2px;
+  padding: 0.15rem 0.2rem;
+  border-radius: 4px;
+  cursor: grab;
+  touch-action: none;
+}
+
+.drag-handle:hover,
+.drag-handle:focus-visible {
+  color: #d8dae0;
+  background: #262a33;
+}
+
+.is-dragging .drag-handle {
+  cursor: grabbing;
+}
+
+.is-dragging .chart-card {
+  border-color: #4a505c;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+.card-notice {
+  font-size: 0.75rem;
+  line-height: 1.4;
+  padding: 0.35rem 0.55rem;
+  border-radius: 6px;
+  margin-bottom: 0.4rem;
+}
+
+.card-notice--warn {
+  color: #f5c46b;
+  background: rgba(245, 196, 107, 0.1);
+  border: 1px solid rgba(245, 196, 107, 0.35);
+}
+
+.card-notice--error {
+  /* 빨강은 '상승' 색이라 오류 안내는 주황으로 */
+  color: #ffa24d;
+  background: rgba(255, 140, 40, 0.12);
+  border: 1px solid rgba(255, 140, 40, 0.45);
+}
